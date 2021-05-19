@@ -1,0 +1,83 @@
+Spring security takes over every request and acts as a filter
+
+spring filters acts a middle bridge between every request and we can check 
+whether we got particular request headers from from url and cross check
+
+	. Adds mandatory authentication for all URL's except error pages
+	. Adds a login page
+	. Handles Login Error
+	. Creates a user and sets a default password
+	
+=============================================================================================================
+Configure authentication in spring security
+
+	.to config we have to affect AuthenticationManager which has 
+	a method called authenticate()
+	. to affect AuthenticationManager we use a class 
+	"AuthenticaionManagerBuilder" 
+		step. 1) get hold of authenticationmanagerbuilder
+					in spring security app--->class(WebSecurityConfigurerAdapter)(extend this class)-->
+					configure(AuthenticationMangerBuilder) &and override the method
+					
+		step. 2) set the configuration 
+		
+		New AuthenticaionMagagerBuilder is formed
+		
+		
+//		@Override     In memory auth
+//		protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+//			// spring handles when we add a annotaion at top
+//			//set u r configuration on auth object
+//			//1 st tell type of authenticaion u need
+//			// any app doesn't store a password in string format 
+//			// we use encoder(Hashing) and inturn we store hash values 
+//			// so lets create a encoder
+//			// password encoder we need to create a @Bean of type "PasswordEncoder"
+//			auth.inMemoryAuthentication()
+//					.withUser("admin")
+//					.password("admin")
+//					.roles("admin")
+//					.and()
+//					.withUser("doctor")
+//					.password("doctor")
+//					.roles("doctor");
+//		}
+				
+==============================================================================================================
+Configure SpringSecurity to Implement Authorization 
+
+Authorization is to check whether a req has an authority to do
+	enable and disable accessed API depending upon who the logged user is..
+	
+	Default Behaviour
+		All API's need Authentication
+	we want to do
+		Enable Bunch of API's to have different levels of access control
+		
+					/------------------All
+					
+					/user-----------------------admin and patient
+					
+					/admin -------------------- admin 
+		
+		HttpSecurity -------------- to configure Authorization similar technique to Authentication
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
